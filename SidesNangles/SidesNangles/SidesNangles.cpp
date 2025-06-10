@@ -2,118 +2,11 @@
 
 using namespace std;
 
-class BaseTriangle {
+class Figure {
 private:
-	protected:
-		int A;
-		int B;
-		int C;
-
-		int a;
-		int b;
-		int c;
-
-
-
-	public:
-		BaseTriangle* childptr1 = nullptr;
-		BaseTriangle* childptr2 = nullptr;
-		BaseTriangle* childptr3 = nullptr;
-
-		string name = "BaseTriangle";
-		BaseTriangle(int A, int B, int C, int a, int b, int c) {
-			this->A = A;
-			this->B = B;
-			this->C = C;
-
-			this->a = a;
-			this->b = b;
-			this->c = c;
-		}
-
-		void refchildren(BaseTriangle* childptr1, BaseTriangle* childptr2, BaseTriangle* childptr3) {
-			this->childptr1 = childptr1;
-			this->childptr2 = childptr2;
-			this->childptr3 = childptr3;
-		}
-
-		void output() {
-			cout << name << ": \n";
-			cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C << endl;
-			cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c;
-
-		}
-
-};
-
-
-class PrTriangle : public BaseTriangle {
-	private:
-		int C = 90;
-	public:
-		string name = "Prtriangle";
-		PrTriangle(int A, int B, int a, int b,int c):BaseTriangle(A,B,90,a,b,c) {
-			this->A = A;
-			this->B = B;
-
-			this->a = a;
-			this->b = b;
-			this->c = c;
-		}
-};
-
-
-class RBTriangle :public BaseTriangle {
-	public:
-		string name = "RBTriangle";
-		RBTriangle(int A, int B, int a, int b) :BaseTriangle(A, B, A, a, b, a) {
-			this->A = A;
-			this->B = B;
-			this->C = A;
-
-			this->a = a;
-			this->b = b;
-			this->c = a;
-		}
-
-
-};
-
-
-class RTriangle : public RBTriangle{
-	private:
-		int A = 60;
-		int B = 60;
-		int C = 60;
-	public:
-		string name = "RTriangle";
-		RTriangle(int a) :RBTriangle(60, 60, a, a) {
-			this->a = a;
-			this->b = a;
-			this->c = a;
-		}
-};
-
-
-void print_info(BaseTriangle* ptr) {			//совсем не понял требование передачи в функцию указателя на БАЗОВЫЙ КЛАСС, поэтому передаю указатель на экземпляр базового класса
-	(*ptr).output();
-	BaseTriangle* child1 = (*ptr).childptr1;
-	BaseTriangle* child2 = (*ptr).childptr2;
-	BaseTriangle* child3 = (*ptr).childptr3;
-	cout << endl << endl;
-	child1->output();						  //Через указатели получилось вывести все поля, кроме имени (почему-то).
-	cout << endl << endl;
-	child2->output();
-	cout << endl << endl;
-	child3->output();
-	cout << endl << endl;
-}
-
-
-
-class BaseRec {
-private:
+	string name = "Figure";
 protected:
+	
 	int A;
 	int B;
 	int C;
@@ -126,13 +19,14 @@ protected:
 
 
 public:
-	BaseRec* childptr1 = nullptr;
-	BaseRec* childptr2 = nullptr;
-	BaseRec* childptr3 = nullptr;
-	BaseRec* childptr4 = nullptr;
+	virtual void output()
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
 
-	string name = "BaseRec";
-	BaseRec(int A, int B, int C,int D, int a, int b, int c, int d) {
+	Figure(int A, int B, int C, int D, int a, int b, int c, int d) {
 		this->A = A;
 		this->B = B;
 		this->C = C;
@@ -143,45 +37,157 @@ public:
 		this->c = c;
 		this->d = d;
 	}
-
-	void refchildren(BaseRec* childptr1, BaseRec* childptr2, BaseRec* childptr3, BaseRec* childptr4) {
-		this->childptr1 = childptr1;
-		this->childptr2 = childptr2;
-		this->childptr3 = childptr3;
-		this->childptr4 = childptr4;
-	}
-
-	void output() {
-		cout << name << ": \n";
-		cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C <<"  D= " <<D << endl;
-		cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c << "d= " << d;
-
-	}
-
 };
 
-class Rectangle : public BaseRec {
-	protected:
-		int A = 90;
-		int B = 90;
-		int C = 90;
-		int D = 90;
-	public:
-		string name = "Rectangle";	  // Blood electric Кэндзи Сиратори 
-		Rectangle(int a, int b) : BaseRec(90, 90, 90, 90, a, b, a, b) {
-			this->a = a;
-			this->b = b;
-			this->c = a;
-			this->d = b;
-		}
-
-
-};
-
-class Square : public Rectangle {
+class Basetri : public Figure {
+private:
+	string name = "Treug";	
 public:
-	string name = "Square";	   
-	Square(int a) : Rectangle(a,a) {
+
+	virtual void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C <<  endl;
+		cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c;
+	}
+
+	Basetri(int A, int B, int C, int a, int b, int c):Figure(A,B,C,0,a,b,c,0) {
+		this->A = A;
+		this->B = B;
+		this->C = C;
+
+		this->a = a;
+		this->b = b;
+		this->c = c;
+	}
+
+};
+
+class PRtri : public Basetri {
+private:
+	string name = "PR treug";	
+public:
+	PRtri(int A, int B, int a, int b, int c) : Basetri(A, B, 90, a, b, c) {
+		this->A = A;
+		this->B = B;
+		this->C = 90;
+
+		this->a = a;
+		this->b = b;
+		this->c = c;
+	}
+	void output() override {		
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C << endl;
+		cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c;
+	}
+};
+
+class RBtri : public Basetri {
+private:
+	string name = "RB treug";
+public:
+	RBtri(int A, int B, int a, int b) : Basetri(A, B, A, a, b, a) {
+		this->A = A;
+		this->B = B;
+		this->C = A;
+
+		this->a = a;
+		this->b = b;
+		this->c = a;
+	}
+	void output() override {
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C << endl;
+		cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c;
+	}
+};
+
+class RNSTtri : public RBtri {
+private:
+	string name = "Ravnostor treug";
+public:
+	RNSTtri(int A) : RBtri(A, A, 60, 60) {
+		this->A = A;
+		this->B = A;
+		this->C = A;
+
+		this->a = 60;
+		this->b = 60;
+		this->c = 60;
+	}
+	void output() override {
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B= " << B << "  C= " << C << endl;
+		cout << "Sides: " << "a = " << a << "  b= " << b << "  c= " << c;
+	}
+};
+
+class Baserec : public Figure {
+private:
+	string name = "Baserec";
+public:
+	virtual void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
+
+	Baserec(int A, int B, int C, int D, int a, int b, int c, int d):Figure(A,B,C,D,a,b,c,d) {
+		this->A = A;
+		this->B = B;
+		this->C = C;
+		this->D = D;
+
+		this->a = a;
+		this->b = b;
+		this->c = c;
+		this->d = d;
+	}
+};
+
+class Rectang : public Baserec{
+private:
+	string name = "Rectangle";
+public:
+	virtual void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
+
+	Rectang(int a, int b) :Baserec(90, 90, 90, 90, a, b, a, b) {
+		this->A = 90;
+		this->B = 90;
+		this->C = 90;
+		this->D = 90;
+
+		this->a = a;
+		this->b = b;
+		this->c = a;
+		this->d = b;
+	}
+};
+
+class Square : public Rectang {
+private:
+	string name = "Square";
+public:
+	void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
+
+	Square(int a) :Rectang( a, a) {
+		this->A = 90;
+		this->B = 90;
+		this->C = 90;
+		this->D = 90;
+
 		this->a = a;
 		this->b = a;
 		this->c = a;
@@ -189,10 +195,18 @@ public:
 	}
 };
 
-class Par : public BaseRec {
+class Pargm : public Baserec {
+private:
+	string name = "Pargm";
 public:
-	string name = "Parallelogram";
-	Par(int A, int B, int a, int b) : BaseRec(A, B, A, B, a, b, a, b) {
+	virtual void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
+
+	Pargm(int A, int B, int a, int b) : Baserec(A, B, A, B, a, b, a, b) {
 		this->A = A;
 		this->B = B;
 		this->C = A;
@@ -203,14 +217,20 @@ public:
 		this->c = a;
 		this->d = b;
 	}
-
-
 };
 
-class Romb : public Par{
-public:
+class Romb : public Pargm {
+private:
 	string name = "Romb";
-	Romb(int A, int B, int a) : Par(A, B, a, a) {
+public:
+	virtual void output() override
+	{
+		cout << name << ": \n";
+		cout << "Angles: " << "A = " << A << "  B = " << B << "  C = " << C << "  D = " << D << endl;
+		cout << "Sides: " << "a = " << a << "  b = " << b << "  c = " << c << "  d = " << d;
+	}
+
+	Romb(int A, int B, int a) : Pargm(A, B, a, a) {
 		this->A = A;
 		this->B = B;
 		this->C = A;
@@ -223,46 +243,54 @@ public:
 	}
 };
 
-void print_info(BaseRec* ptr) {			
-	(*ptr).output();
-	BaseRec* child1 = (*ptr).childptr1;
-	BaseRec* child2 = (*ptr).childptr2;
-	BaseRec* child3 = (*ptr).childptr3;
-	BaseRec* child4 = (*ptr).childptr4;
+
+
+void Print_info(Figure* ptr) {
+	Basetri treug(120, 40, 20, 6, 2, 1);
+	ptr = &treug;
+	ptr->output();
 	cout << endl << endl;
-	child1->output();						  
+
+	PRtri prtreug(30, 60, 4, 2, 8);
+	ptr = &prtreug;
+	ptr->output();
 	cout << endl << endl;
-	child2->output();
+
+	RBtri rbtreug(50, 80, 4, 6);
+	ptr = &rbtreug;
+	ptr->output();
 	cout << endl << endl;
-	child3->output();
+
+	RNSTtri rnstreug(6);
+	ptr = &rnstreug;
+	ptr->output();
 	cout << endl << endl;
-	child4->output();
+
+	Baserec Cheug(30, 40, 130, 130, 3, 4, 13, 13);
+	ptr = &Cheug;
+	ptr->output();
 	cout << endl << endl;
+
+	Rectang Pryamik(3, 4);
+	ptr = &Pryamik;
+	ptr->output();
+	cout << endl << endl;
+
+	Pargm parich(110, 70, 11, 7);
+	ptr = &parich;
+	ptr->output();
+	cout << endl << endl;
+
+	Romb romb(60, 120, 5);
+	ptr = &romb;
+	ptr->output();
+	
 }
 
-
 int main() {
+	Figure* obj = nullptr;
 
-	BaseTriangle Treug(100, 30, 50, 2, 3, 4);
-	PrTriangle   PrTreug(30, 60, 2, 3, 4);
-	RBTriangle   RBtreug(30, 120, 4, 6);
-	RTriangle	 Rtreug(3);
-
-	Treug.refchildren(&PrTreug, &RBtreug, &Rtreug);
-
-	print_info(&Treug);
-
-	cout << endl << endl;
-
-	BaseRec  chug(95, 85, 115, 65, 3, 4, 5, 6);
-	Rectangle rek(3, 5);
-	Square   kvad(4);
-	Par      parich(85, 95, 3, 4);
-	Romb	 rombik(95, 85, 6);
-
-	chug.refchildren(&rek,&kvad, &parich, &rombik);
-
-	print_info(&chug);
+	Print_info(obj);
 
 	return 0;
 }
