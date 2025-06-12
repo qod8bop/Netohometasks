@@ -1,4 +1,4 @@
-#include"MathFuncs.h"
+#include"operations.h"
 #include <iostream>
 
 double Add(double num1, double num2) {
