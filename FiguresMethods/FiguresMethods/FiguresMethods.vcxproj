@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cd73cc9c-7702-41c0-8c13-8ad4412f6ab2}</ProjectGuid>
-    <RootNamespace>GODhavemercyonmysoul</RootNamespace>
+    <ProjectGuid>{deb44191-2f32-46d7-85f1-12516b8a10b7}</ProjectGuid>
+    <RootNamespace>FiguresMethods</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GODhavemercyonmysoul.cpp" />
+    <ClCompile Include="FiguresMethods.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

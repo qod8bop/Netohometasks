@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GODhavemercyonmysoul.cpp">
+    <ClCompile Include="FiguresMethods.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
