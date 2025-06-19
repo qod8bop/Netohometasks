@@ -1,11 +1,14 @@
 #pragma once
-#include"BaseFig.h"
-#include<iostream>
-using namespace std;
+
+#include "BaseFig.h"
+#include <iostream>
+#include <cstring>
+
+
 
 class Basetri : public Figure {
 private:
-	string name = "Treug";
+	std::string name = "Treug";
 public:
 
 	virtual void output() override;
@@ -18,7 +21,7 @@ public:
 
 class PRtri : public Basetri {
 private:
-	string name = "PR treug";
+	std::string name = "PR treug";
 public:
 	PRtri(int A, int B, int a, int b, int c);
 
@@ -31,7 +34,7 @@ public:
 
 class RBtri : public Basetri {
 private:
-	string name = "RB treug";
+	std::string name = "RB treug";
 public:
 	RBtri(int A, int B, int a, int b);
 	
@@ -43,7 +46,7 @@ public:
 
 class RNSTtri : public RBtri {
 private:
-	string name = "Ravnostor treug";
+	std::string name = "Ravnostor treug";
 public:
 	RNSTtri(int A);
 

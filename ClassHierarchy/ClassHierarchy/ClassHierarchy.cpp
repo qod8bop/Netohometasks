@@ -1,6 +1,6 @@
-﻿#include<iostream>
-#include"Print_info.h"
-#include"Basefig.h"
+﻿#include <iostream>
+#include "Print_info.h"
+#include "Basefig.h"
 
 int main() {
 	Figure* ptr = nullptr;

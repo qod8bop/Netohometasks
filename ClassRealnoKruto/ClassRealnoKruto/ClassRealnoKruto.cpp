@@ -1,5 +1,5 @@
-﻿#include<iostream>
-#include"Class.h"
+﻿#include <iostream>
+#include "Counter.h"
 
 using namespace std;
 

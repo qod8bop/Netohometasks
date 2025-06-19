@@ -1,10 +1,11 @@
 #pragma once
-#include"BaseFig.h"
-#include<iostream>
+
+#include "BaseFig.h"
+#include <iostream>
 
 class Baserec : public Figure {
 private:
-	string name = "Baserec";
+	std::string name = "Baserec";
 public:
 	virtual void output() override;
 
@@ -16,7 +17,7 @@ public:
 
 class Rectang : public Baserec {
 private:
-	string name = "Rectangle";
+	std::string name = "Rectangle";
 public:
 	virtual void output() override;
 
@@ -28,7 +29,7 @@ public:
 
 class Square : public Rectang {
 private:
-	string name = "Square";
+	std::string name = "Square";
 public:
 	void output() override;
 
@@ -39,7 +40,7 @@ public:
 
 class Pargm : public Baserec {
 private:
-	string name = "Pargm";
+	std::string name = "Pargm";
 public:
 	virtual void output() override;
 
@@ -51,7 +52,7 @@ public:
 
 class Romb : public Pargm {
 private:
-	string name = "Romb";
+	std::string name = "Romb";
 public:
 	virtual void output() override;
 

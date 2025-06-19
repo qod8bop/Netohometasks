@@ -1,4 +1,5 @@
 #pragma once
+
 class Counter {
     int value;
 

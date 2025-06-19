@@ -1,5 +1,5 @@
-#include"Class.h"
-#include<iostream>
+#include "Counter.h"
+#include <iostream>
 
     void Counter::incr() { value++; }
 

@@ -1,11 +1,11 @@
 #pragma once
-#include<cstring>
-#include<iostream>
-using namespace std;
+
+#include <iostream>
+
 
 class Figure {
 private:
-	string name;
+	std::string name;
 protected:
 
 	int A;

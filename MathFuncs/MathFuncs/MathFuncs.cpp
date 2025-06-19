@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "operations.h"
+
 using namespace std;
 
 enum Comands{Exit = 0, Addition, Subtraction, Multiplication, Division, Exponentiation};
