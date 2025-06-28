@@ -16,12 +16,12 @@
 	 Baserec::Baserec(int A, int B, int C, int D, int a, int b, int c, int d) :Figure(A, B, C, D, a, b, c, d)
 	 {
 		 if (sides != 4) {
-			 throw wrongsides();
+			 throw WrongFigureException("Неверное количество сторон");
 		 }
 
 
 		 if ((A + B + C + D) != 360) {
-			 throw wronganglesREC();
+			 throw WrongFigureException("Сумма углов не равна 360");
 		 }
 
 	 }
@@ -40,13 +40,13 @@
 	Rectang::Rectang(int A, int B, int C, int D, int a, int b, int c, int d) :Baserec(A, B, C, D, a, b, c, d)
 	{
 		if (a != c ){
-			throw acnoteq();
+			throw WrongFigureException("стороны а и с не равны");
 			}
 		if (b != d) {
-			throw bdnoteq();
+			throw WrongFigureException("стороны b и d не равны");
 		}
 		if (A != B || B != C || C != D) {
-			throw ANGSnoteq();
+			throw WrongFigureException("Углы не равны");
 		}
 	
 	}
@@ -77,16 +77,16 @@
 	Pargm::Pargm(int A, int B, int C, int D, int a, int b, int c, int d) : Baserec(A, B, A, B, a, b, a, b)
 	{
 		if (a != c) {
-			throw acnoteq();
+			throw WrongFigureException("стороны а и с не равны");
 		}
 		if (b != d) {
-			throw bdnoteq();
+			throw WrongFigureException("стороны b и d не равны");
 		}
 		if (A != C) {
-			throw ACnoteq();
+			throw WrongFigureException("Углы А и С не равный");
 		}
 		if (B != D) {
-			throw BDnoteq();
+			throw WrongFigureException("Углы B и D не равны");
 		}
 
 	}

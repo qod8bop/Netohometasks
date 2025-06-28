@@ -2,9 +2,10 @@
 #include <locale.h>
 
 
+
 void lengthcalc(std::string str, int forbidden_length) {  
 	if (str.size() == forbidden_length) {
-		throw 1;
+		throw std::runtime_error("Вы ввели слово запретной длины! До свидания");
 	}
 	else {
 		std::cout << "Длина слова  " << str << " равна: " << (str.size());
@@ -30,8 +31,9 @@ int main() {
 				lengthcalc(str, forbidlen);
 			}
 
-			catch (int) {
-				std::cerr << "Вы ввели слово запретной длины! До свидания";
+			catch (const std::runtime_error& eggor) {
+				std::cerr<<eggor.what();
+				break;
 			}
 			catch (...) {
 				std::cerr << "Неизвестная ошибка";

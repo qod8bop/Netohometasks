@@ -1,57 +1,12 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 
-class wrongsides {
+class WrongFigureException {  // Здравствуйте, а можете, пожалуйста объяснить зачем нужно создавать этот класс как наследника от std::exception?
+private:
+	std::string msg;
 public:
-	void what();
-};
+	WrongFigureException(std::string msg) ;
 
-class wronganglesTRI{
-public:
-	void what();
-};
-
-class wronganglesREC {
-public:
-	void what();
-};
-
-class WrongC {
-public:
-	void what();
-};
-
-class acnoteq {
-public:
-	void what();
-};
-
-class ACnoteq {
-public:
-	void what();
-};
-
-class ANGSnoteq {
-public:
-	void what();
-};
-
-class sidesnoteq {
-public:
-	void what();
-};
-
-class OneBadAngle {
-public:
-	void what();
-};
-
-class bdnoteq {
-public:
-	void what();
-};
-
-class BDnoteq {
-public:
-	void what();
+	std::string What();
 };

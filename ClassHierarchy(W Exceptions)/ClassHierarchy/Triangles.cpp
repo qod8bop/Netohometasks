@@ -18,12 +18,12 @@
 	Basetri::Basetri(int A, int B, int C, int a, int b, int c) :Figure(A, B, C, 0, a, b, c, 0) 
 	{
 			if (sides != 3) {
-				throw wrongsides();
+				throw WrongFigureException("Неверное количество сторон");
 			}
 
 
 			if ((A + B + C) != 180) {
-				throw wronganglesTRI();
+				throw WrongFigureException("Сумма углов не равна 180");
 			}
 	}
 
@@ -34,7 +34,7 @@
 	PRtri::PRtri(int A, int B, int C, int a, int b, int c) :Basetri(A, B, C, a, b, c) 
 	{
 		if (C != 90) {
-			throw WrongC();
+			throw WrongFigureException("Угол С не равен 90");
 		}
 	}
 
@@ -53,11 +53,11 @@
 	RBtri::RBtri(int A, int B, int C, int a, int b,int c) : Basetri(A, B, C, a, b, c) 
 	{
 		if (A != C) {
-			throw ACnoteq();
+			throw WrongFigureException("Углы A и C не равны");
 		}
 
 		if (a != c) {
-			throw acnoteq();
+			throw WrongFigureException("Стороны а и с не равны");
 		}
 	}
 
@@ -76,11 +76,11 @@
 	RNSTtri::RNSTtri(int A, int B, int C, int a, int b, int c) : RBtri(A, B, C, a, b, c)
 	{
 		if (a!=b && b!=c) {
-			throw sidesnoteq();
+			throw WrongFigureException("Стороны не равны между собой");
 		}
 
 		if (A != B && B != C) {
-			throw ANGSnoteq();
+			throw WrongFigureException("Стороны не равны между собой");
 		}
 	
 	}
