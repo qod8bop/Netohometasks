@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 
-#define MODE 0
+#define MODE 4
 
 #if  !defined MODE
 	#error MODE must be defined
@@ -22,8 +22,8 @@ int add() {
 	return (num1 + num2);
 }
 
-#elif MODE==1 || MODE<0
-	#error Неизвестный режим
+#elif MODE>1 || MODE<0
+	#error Неизвестный режим. Завершение работы
 #endif
 
 
