@@ -11,7 +11,12 @@ int main() {
 
 	catch(WrongFigureException& egor)
 	{
-		std::cerr << egor.What();
+		std::cerr << egor.what();
+	}
+
+	catch (...)
+	{
+		std::cerr << "Неизвестная ошибка";
 	}
 
 	std::cout << std::endl;

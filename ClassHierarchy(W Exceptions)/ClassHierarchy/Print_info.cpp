@@ -65,7 +65,7 @@ void Print_info(Figure* ptr) {
 
 
 
-		if (i == 0) {							//switch case почему-то отказался тут работать
+		if (i == 0) {							
 			Basetri treug(A, B, C, a, b, c);
 			ptr = &treug;
 			ptr->output();

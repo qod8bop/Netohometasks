@@ -22,8 +22,6 @@ int add() {
 	return (num1 + num2);
 }
 
-#elif MODE>1 || MODE<0
-	#error Неизвестный режим. Завершение работы
 #endif
 
 
@@ -35,5 +33,8 @@ int main() {
 	std::cout << "Работаю в боевом режиме";
 	std::cout << std::endl;
 	std::cout << add();
+#elif MODE>1 || MODE<0
+	std::cout << " Неизвестный режим.Завершение работы";
+
 #endif
 }

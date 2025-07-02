@@ -10,7 +10,7 @@ WrongFigureException::WrongFigureException(std::string msg)
 	this->msg = msg;
 }
 
-std::string WrongFigureException::What()
+std::string WrongFigureException::what()
 {
 	return msg;
 }
