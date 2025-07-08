@@ -7,16 +7,6 @@ private:
 	int numerator_;
 	int denominator_;
 
-public:
-	std::string print()
-	{
-		std::string a = std::to_string(numerator_);
-		std::string b = "/";
-		std::string c = std::to_string(denominator_);
-		std::string out = a + b + c;
-		return out;
-	}
-
 	void reduce()
 	{
 		int SmallOne = denominator_;
@@ -26,11 +16,11 @@ public:
 		while (true)
 		{
 			mod = BigOne % SmallOne;
-			if(mod == 0)
+			if (mod == 0)
 			{
 				break;
 			}
-			else 
+			else
 			{
 				BigOne = SmallOne;
 				SmallOne = mod;
@@ -41,11 +31,25 @@ public:
 		numerator_ /= storage;
 	}
 
+public:
+	std::string print()
+	{
+		std::string a = std::to_string(numerator_);
+		std::string b = "/";
+		std::string c = std::to_string(denominator_);
+		std::string out = a + b + c;
+		return out;
+	}
+
+
+
 
 	Fraction(int numerator, int denominator)
 	{
 		numerator_ = numerator;
 		denominator_ = denominator;
+
+		this->reduce();
 	}
 
 	int cdenom(Fraction other) { // числитель после приведения к общему знаменателю
@@ -134,20 +138,16 @@ int main() {
 	std::cout << std::endl;
 
 	Fraction F3 = F1 + F2;
-	F3.reduce();
 	std::cout << F1.print() << " + " << F2.print() << " = " << F3.print() << std::endl;
 	F3 = F1 - F2;
 	std::cout << F1.print() << " - " << F2.print() << " = " << F3.print() << std::endl;
 	F3 = F1 * F2;
-	F3.reduce();
 	std::cout << F1.print() << " * " << F2.print() << " = " << F3.print() << std::endl;
 	F3 = F1 / F2;
-	F3.reduce();
 	std::cout << F1.print() << " / " << F2.print() << " = " << F3.print() << std::endl << std::endl;
 	
 	std::cout << "++" << F1.print() << " * " << F2.print() << " = ";
 	F3 = ++F1 * F2;
-	F3.reduce();
 	std::cout << F3.print() << std::endl;
 
 
@@ -157,7 +157,6 @@ int main() {
 
 	std::cout << F1.print() << "--" << " * " << F2.print() << " = ";
 	F3 = F1-- * F2;
-	F3.reduce();
 	std::cout << F3.print() << std::endl ;
 
 	std::cout << "Значение дроби 1 = " << F1.print() << std::endl << std::endl;;
