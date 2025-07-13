@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.22.0)
+project(LeaverCmake)
+add_library(LeaverDLL SHARED Leaver.cpp Leaver.h)
+add_executable(poeben LeaverClient.cpp)
+target_link_libraries(poeben LeaverDLL)

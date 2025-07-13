@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Leaver.h"
 
-void lvr::Leaver::leave() 
+void lvr::Leaver::leave()
 {
 	std::string name;
 	std::cout << "Введите имя: ";

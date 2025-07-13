@@ -1,6 +1,4 @@
 #pragma once
-
-#pragma once
 #ifdef LEAVER_EXPORTS
 #define LEAVER_API __declspec(dllexport)
 #else

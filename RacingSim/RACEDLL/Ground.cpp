@@ -1,0 +1,92 @@
+#include "Base.h"
+#include "Ground.h"
+
+namespace veh 
+{
+	//Camel
+	Camel::Camel(std::string name, short speed, short TTR) :Base(name, typ::ground, speed, TTR, 0) {};
+
+	void Camel::TimeCalc(int length)
+	{
+		time = length / speed;
+		int amount = time / TimeToRest;
+
+		switch(amount)
+		{
+		case 1:
+			time += 5;
+			break;
+		default:
+			time += 5;
+			for (int i = 1; i < amount; i++) {
+				time += 8;
+			}
+		}
+	}
+
+
+
+
+	//Bistriy Camel
+	FCamel::FCamel(int a) :Camel("Fast Camel", 40, 10) {};
+	
+	void FCamel::TimeCalc(int length)
+	{
+		time = length / speed;
+		int amount = time / TimeToRest;
+
+		switch (amount)
+		{
+		case 1:
+			time += 5;
+			break;
+		case 2:
+			time += 11.5;
+			break;
+		default:
+			time += 11.5;
+			for (int i = 1; i < amount; i++) {
+				time += 8;
+			}
+		}
+	}
+
+
+
+
+	//Centaur
+	Centaur::Centaur(int a) :Camel("Centaur", 15, 8) {};
+
+	void Centaur::TimeCalc(int length)
+	{
+		time = length / speed;
+		int amount = time / TimeToRest;
+		for(int i=0; i< amount; i++)
+		{
+			time += 2;
+		}
+	}
+
+
+
+	//SAPOGI
+	Tapki::Tapki(int a) :Camel("Boots", 6, 60) {};
+
+	void Tapki::TimeCalc(int length)
+	{
+		time = length / speed;
+		int amount = time / TimeToRest;
+
+		switch (amount)
+		{
+		case 1:
+			time += 10;
+			break;
+		default:
+			time += 10;
+			for (int i = 1; i < amount; i++) {
+				time += 5;
+			}
+		}
+	}
+}
