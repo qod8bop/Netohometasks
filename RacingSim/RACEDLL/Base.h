@@ -10,12 +10,10 @@
 
 namespace veh
 {
-	enum typ {null = 0,ground = 1, aerial = 2};
 
 	class RACEDLL_API Base
 	{
 	protected:
-		typ type = null;
 		short speed = 0;
 		short TimeToRest = 0;
 		double coef = 0;
@@ -24,7 +22,7 @@ namespace veh
 		double time = 0;
 
 		Base();
-		Base(std::string name, typ type, short speed, short TTR, short coef);
+		Base(std::string name, short speed, short TTR, short coef);
 		void ListInfo();
 		void ClearTime();
 
