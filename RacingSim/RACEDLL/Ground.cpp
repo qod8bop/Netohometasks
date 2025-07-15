@@ -6,7 +6,7 @@ namespace veh
 	//Camel
 	Camel::Camel(std::string name, short speed, short TTR) :Base(name, typ::ground, speed, TTR, 0) {};
 
-	void Camel::TimeCalc(int length)
+	void Camel::TimeCalc(double length)
 	{
 		time = length / speed;
 		int amount = time / TimeToRest;
@@ -30,7 +30,7 @@ namespace veh
 	//Bistriy Camel
 	FCamel::FCamel(int a) :Camel("Fast Camel", 40, 10) {};
 	
-	void FCamel::TimeCalc(int length)
+	void FCamel::TimeCalc(double length)
 	{
 		time = length / speed;
 		int amount = time / TimeToRest;
@@ -57,7 +57,7 @@ namespace veh
 	//Centaur
 	Centaur::Centaur(int a) :Camel("Centaur", 15, 8) {};
 
-	void Centaur::TimeCalc(int length)
+	void Centaur::TimeCalc(double length)
 	{
 		time = length / speed;
 		int amount = time / TimeToRest;
@@ -72,7 +72,7 @@ namespace veh
 	//SAPOGI
 	Tapki::Tapki(int a) :Camel("Boots", 6, 60) {};
 
-	void Tapki::TimeCalc(int length)
+	void Tapki::TimeCalc(double length)
 	{
 		time = length / speed;
 		int amount = time / TimeToRest;

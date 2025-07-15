@@ -16,7 +16,7 @@ namespace veh
 	{
 	public:
 		Carpet(std::string name, short speed, double coef);
-		virtual void TimeCalc(double length);
+		void TimeCalc(double length) override;
 	};
 
 

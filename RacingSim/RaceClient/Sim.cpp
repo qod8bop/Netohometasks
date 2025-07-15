@@ -6,8 +6,8 @@
 
 int main()
 {
-	int pl = 0; //место транспорта в массиве
-	int length;
+	short pl = 0; //место транспорта в массиве
+	double length;
 	std::cout << "Добро пожаловать в гоночный симулятор" << std::endl;
 	
 	while (true)
@@ -73,17 +73,21 @@ int main()
 		std::cout << std::endl;
 		std::cout << std::endl;
 
-		veh::Base* RaceList = new veh::Base[8];
+		veh::Base** RaceList = new veh::Base*[8];
 
-		while (true)
+		bool BootsPicked = false;
+		bool BroomPicked = false;
+		bool CamelPicked = false;
+		bool CentuPicked = false;
+		bool EaglePicked = false;
+		bool FCamePicked = false;
+		bool CarpePicked = false;
+
+		bool Selection = true;
+
+		while (Selection)
 		{
-			bool BootsPicked = false;
-			bool BroomPicked = false;
-			bool CamelPicked = false;
-			bool CentuPicked = false;
-			bool EaglePicked = false;
-			bool FCamePicked = false;
-			bool CarpePicked = false;
+
 
 			switch (RaceType)
 			{
@@ -105,61 +109,95 @@ int main()
 			std::cout << "Зарегестрированные участники: ";
 			for(int i=0; i<pl; i++)
 			{
-			std::cout << RaceList[pl].name;
-			if(i != pl-1){ std::cout << ", "; }
+				std::cout << RaceList[i]->name; //Имена почему-то не отображаются;
 			}
 			vehf::ListContestants();
 			std::cin >> choice;
 
 			
 			
-			if(choice == 1 && BootsPicked == false)
+			if(choice == 1 && BootsPicked == false && (RaceType == 1 || RaceType == 3))
 			{
 				veh::Tapki boots(1);
-				RaceList[pl] = boots;
+				RaceList[pl] = &boots;
 				pl++;
+				BootsPicked = true;
 			}
-			if (choice == 2 && BroomPicked == false)
+			if (choice == 2 && BroomPicked == false && (RaceType == 2 || RaceType == 3))
 			{
 				veh::Broom broom(1);
-				RaceList[pl] = broom;
+				RaceList[pl] = &broom;
 				pl++;
+				BroomPicked = true;
 			}
-			if (choice == 3 && CamelPicked == false)
+			if (choice == 3 && CamelPicked == false && (RaceType == 1 || RaceType == 3))
 			{
 				veh::Camel camel("Camel", 10, 30);
-				RaceList[pl] = camel;
+				RaceList[pl] = &camel;
 				pl++;
+				CamelPicked = true;
 			}
-			if (choice == 4 && CentuPicked == false)
+			if (choice == 4 && CentuPicked == false && (RaceType == 1 || RaceType == 3))
 			{
 				veh::Centaur cent(1);
-				RaceList[pl] = cent;
+				RaceList[pl] = &cent;
 				pl++;
+				CentuPicked = true;
 			}
-			if (choice == 5 && EaglePicked == false)
+			if (choice == 5 && EaglePicked == false && (RaceType == 2 || RaceType == 3))
 			{
 				veh::Eagle eagle(1);
-				RaceList[pl] = eagle;
+				RaceList[pl] = &eagle;
 				pl++;
+				EaglePicked = true;
 			}
-			if (choice == 6 && FCamePicked == false)
+			if (choice == 6 && FCamePicked == false && (RaceType == 1 || RaceType == 3))
 			{
 				veh::FCamel fcamel(1);
-				RaceList[pl] = fcamel;
+				RaceList[pl] = &fcamel;
 				pl++;
+				FCamePicked = true;
 			}
-			if (choice == 7 && CarpePicked == false)
+			if (choice == 7 && CarpePicked == false && (RaceType == 2 || RaceType == 3))
 			{
 				veh::Carpet carpet("Magic carpet", 10, 0);
-				RaceList[pl] = carpet;
+				RaceList[pl] = &carpet;
 				pl++;
+				CarpePicked = true;
 			}
-			else if (choice>8 || choice<1) { std::cout << "Неверный выбор\n"; }
+			else { std::cout << "Неверный выбор\n"; } //Это сообщение выводится при любом выборе, кроме 7го. почему-то
 			std::cout << std::endl;
-			
+
+			if(choice == 0)
+			{
+				while (true)
+				{
+
+					std::cout << "1. Зарегистрировать транспорт";
+					std::cout << "\n2. Начать гонку\n";
+					std::cout << "Выберите действие: ";
+					std::cin >> choice;
+					std::cout << std::endl;
+
+					if (choice < 1 || choice > 2){std::cout << "Неверный выбор\n";}
+					if (choice == 1){break;}
+					if (choice == 2) 
+					{ 
+						Selection = false;
+						break;
+					}
+				}
+			}
 		}
+
+
+		std::cout << "Реузльтаты гонки: \n";
+		vehf::SortContestants(RaceList, pl, length);  //Имена почему-то не отображаются;
+
+		std::cout << std::endl << std::endl << std::endl;
+		break;
 	}
+
 }
 
 

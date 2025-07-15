@@ -30,4 +30,6 @@ namespace veh
 		time = 0;
 	}
 
+	void Base::TimeCalc(double length) { std::cout << "BASE"; };
+
 }

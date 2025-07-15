@@ -27,5 +27,7 @@ namespace veh
 		Base(std::string name, typ type, short speed, short TTR, short coef);
 		void ListInfo();
 		void ClearTime();
+
+		virtual void TimeCalc(double length);
 	};
 }

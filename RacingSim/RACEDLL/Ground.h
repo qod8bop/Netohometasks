@@ -16,7 +16,7 @@ namespace veh
 	{
 	public:
 		Camel(std::string name, short speed, short TTR);
-		virtual void TimeCalc(int length);
+		void TimeCalc(double length) override;
 	};
 
 
@@ -26,7 +26,7 @@ namespace veh
 	{
 	public:
 		FCamel(int a); //int a ничего не делает, но без этого костыля, невозможно вызывать методы. Почему-то
-		void TimeCalc(int length) override;
+		virtual void TimeCalc(double length) override;
 	};
 
 
@@ -37,7 +37,7 @@ namespace veh
 	{
 	public:
 		Centaur(int a); //int a ничего не делает, но без этого костыля, невозможно вызывать методы
-		void TimeCalc(int length) override;
+		virtual void TimeCalc(double length) override;
 	};
 
 
@@ -47,6 +47,6 @@ namespace veh
 	{
 	public:
 		Tapki(int a);
-		void TimeCalc(int length) override;
+		virtual void TimeCalc(double length) override;
 	};
 }

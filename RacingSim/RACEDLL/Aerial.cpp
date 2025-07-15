@@ -4,7 +4,7 @@
 namespace veh
 {
 	//Covrik
-	Carpet::Carpet(std::string name, short speed, double coef) :Base("Magic Carpet", veh::aerial, 10, 0, 0) {};
+	Carpet::Carpet(std::string name, short speed, double coef) :Base(name, veh::aerial, 10, 0, 0) {};
 
 	void Carpet::TimeCalc(double length)
 	{
@@ -39,7 +39,6 @@ namespace veh
 	void Broom::TimeCalc(double length)
 	{
 		coef = static_cast<int>(length / 1000);
-		std::cout << coef;
 		
 		length *= ((100 - coef) / 100);
 
