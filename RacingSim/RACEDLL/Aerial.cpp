@@ -4,7 +4,7 @@
 namespace veh
 {
 	//Covrik
-	Carpet::Carpet(std::string name, short speed, double coef) :Base(name, 10, 0, 0) {};
+	Carpet::Carpet(const char* name, short speed, double coef) :Base(name, 10, 0, 0) {};
 
 	void Carpet::TimeCalc(double length)
 	{

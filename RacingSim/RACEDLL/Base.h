@@ -18,13 +18,12 @@ namespace veh
 		short TimeToRest = 0;
 		double coef = 0;
 	public:
-		std::string name = "Base";
+		const char* name = "Base";
 		double time = 0;
 
 		Base();
-		Base(std::string name, short speed, short TTR, short coef);
+		Base(const char* name, short speed, short TTR, short coef);
 		void ListInfo();
-		void ClearTime();
 
 		virtual void TimeCalc(double length);
 	};

@@ -15,7 +15,7 @@ namespace veh
 	class RACEDLL_API Carpet : public Base  //Зачем перед название класса нужно писать RACEDLL_API?
 	{
 	public:
-		Carpet(std::string name, short speed, double coef);
+		Carpet(const char* name, short speed, double coef);
 		void TimeCalc(double length) override;
 	};
 

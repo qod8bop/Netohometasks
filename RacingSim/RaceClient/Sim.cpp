@@ -3,16 +3,24 @@
 #include "Aerial.h"
 #include "Funcs.h"
 #include <iostream>
+#include <windows.h>
 
 int main()
 {
-	short pl = 0; //место транспорта в массиве
-	double length;
-	std::cout << "Добро пожаловать в гоночный симулятор" << std::endl;
+
+
+	setlocale(LC_ALL, "RU");
 	
-	while (true)
+	bool SimOn = true;
+
+	while (SimOn)
 	{
-		short choice;
+		short pl = 0; //место транспорта в массиве
+		double length;
+		std::cout << "Добро пожаловать в гоночный симулятор" << std::endl;
+
+
+		short choice = 0;
 		short RaceType;
 		std::cout << "1.  Гонка для наземного транспорта" << std::endl;
 		std::cout << "2.  Гонка для воздушного транспорта" << std::endl;
@@ -109,7 +117,7 @@ int main()
 			std::cout << "Зарегестрированные участники: ";
 			for(int i=0; i<pl; i++)
 			{
-				std::cout << RaceList[i]->name; //Имена почему-то не отображаются;
+				std::cout << RaceList[i]->name << "   "; //Имена почему-то не отображаются;
 			}
 			vehf::ListContestants();
 			std::cin >> choice;
@@ -192,10 +200,26 @@ int main()
 
 
 		std::cout << "Реузльтаты гонки: \n";
-		vehf::SortContestants(RaceList, pl, length);  //Имена почему-то не отображаются;
+		vehf::SortContestants(RaceList, pl, length);
 
 		std::cout << std::endl << std::endl << std::endl;
-		break;
+
+		delete [] RaceList;
+		while (true) {
+			std::cout << "\n1 - Ещё раз";
+			std::cout << "\n2 - Выйти";
+			std::cout << "\nВыбор: ";
+			std::cin >> choice;
+
+		
+			if (choice == 2)
+			{
+				SimOn = false;
+				break;
+			}
+			if (choice == 1) { break; };
+			if (choice < 1 || choice>2) { std::cout << "Неверный выбор"; }
+		}
 	}
 
 }

@@ -36,11 +36,13 @@ namespace vehf
 
 		for (int i=1; i<pl; i++)
 		{
-			while(i > 0 && Racelist[i]->time < Racelist[i - 1]->time)
+
+			while(i>0 && Racelist[i]->time < Racelist[i - 1]->time)
 			{
 				Racelist[7] = Racelist[i - 1];
 				Racelist[i - 1] = Racelist[i];
 				Racelist[i] = Racelist[7];
+				i--;
 			}
 		}
 

@@ -4,7 +4,7 @@
 namespace veh 
 {
 	//Camel
-	Camel::Camel(std::string name, short speed, short TTR) :Base(name, speed, TTR, 0) {};
+	Camel::Camel(const char* name, short speed, short TTR) :Base(name, speed, TTR, 0) {};
 
 	void Camel::TimeCalc(double length)
 	{

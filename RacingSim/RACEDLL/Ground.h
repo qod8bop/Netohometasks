@@ -15,7 +15,7 @@ namespace veh
 	class RACEDLL_API Camel : public Base
 	{
 	public:
-		Camel(std::string name, short speed, short TTR);
+		Camel(const char* name, short speed, short TTR);
 		void TimeCalc(double length) override;
 	};
 
