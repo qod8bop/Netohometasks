@@ -10,6 +10,7 @@ namespace veh
 	{
 		time = length / speed;
 		int amount = time / TimeToRest;
+		amount--;
 
 		switch(amount)
 		{
@@ -28,7 +29,7 @@ namespace veh
 
 
 	//Bistriy Camel
-	FCamel::FCamel(int a) :Camel("Fast Camel", 40, 10) {};
+	FCamel::FCamel(int a) :Camel("Быстрый верблюд", 40, 10) {};
 	
 	void FCamel::TimeCalc(double length)
 	{
@@ -45,7 +46,7 @@ namespace veh
 			break;
 		default:
 			time += 11.5;
-			for (int i = 1; i < amount; i++) {
+			for (int i = 2; i < amount; i++) {
 				time += 8;
 			}
 		}
@@ -55,7 +56,7 @@ namespace veh
 
 
 	//Centaur
-	Centaur::Centaur(int a) :Camel("Centaur", 15, 8) {};
+	Centaur::Centaur(int a) :Camel("Кентавр", 15, 8) {};
 
 	void Centaur::TimeCalc(double length)
 	{
@@ -70,7 +71,7 @@ namespace veh
 
 
 	//SAPOGI
-	Tapki::Tapki(int a) :Camel("Boots", 6, 60) {};
+	Tapki::Tapki(int a) :Camel("Тапки", 6, 60) {};
 
 	void Tapki::TimeCalc(double length)
 	{

@@ -9,7 +9,7 @@ int main()
 {
 
 
-	setlocale(LC_ALL, "RU");
+	SetConsoleOutputCP(CP_UTF8);
 	
 	bool SimOn = true;
 
@@ -140,7 +140,7 @@ int main()
 			}
 			if (choice == 3 && CamelPicked == false && (RaceType == 1 || RaceType == 3))
 			{
-				veh::Camel camel("Camel", 10, 30);
+				veh::Camel camel("Верблюд", 10, 30);
 				RaceList[pl] = &camel;
 				pl++;
 				CamelPicked = true;
@@ -168,7 +168,7 @@ int main()
 			}
 			if (choice == 7 && CarpePicked == false && (RaceType == 2 || RaceType == 3))
 			{
-				veh::Carpet carpet("Magic carpet", 10, 0);
+				veh::Carpet carpet("Ковёр", 10, 0);
 				RaceList[pl] = &carpet;
 				pl++;
 				CarpePicked = true;
